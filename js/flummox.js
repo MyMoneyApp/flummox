@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var Flummox = {};
 
 var extend = function(protoProps, staticProps) {
