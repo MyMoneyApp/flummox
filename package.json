@@ -20,5 +20,9 @@
     "vinyl-buffer": "~1.0.0",
     "vinyl-source-stream": "~1.0.0",
     "watchify": "~2.3.0"
+  },
+
+  "scripts": {
+    "test": "jest"
   }
 }
