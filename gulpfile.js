@@ -5,6 +5,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var watchify = require('watchify');
 var browserify = require('browserify');
+var to5 = require('gulp-6to5');
 
 var bundler = watchify(browserify('./src/flummox.js', watchify.args));
 // add any other browserify options or transforms here
@@ -19,10 +20,9 @@ function bundle() {
     // log errors if they happen
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source('bundle.js'))
-    // optional, remove if you dont want sourcemaps
       .pipe(buffer())
+      .pipe(to5())
       .pipe(sourcemaps.init({loadMaps: true})) // loads map from browserify file
       .pipe(sourcemaps.write('./')) // writes .map file
-    //
-    .pipe(gulp.dest('./dist'));
+      .pipe(gulp.dest('./dist'));
 }
