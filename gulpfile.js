@@ -7,12 +7,14 @@ var watchify = require('watchify');
 var browserify = require('browserify');
 var to5 = require('gulp-6to5');
 
-var bundler = watchify(browserify('./src/flummox.js', watchify.args));
+var bundler = watchify(browserify('./src/index.js', watchify.args));
+
 // add any other browserify options or transforms here
 //bundler.transform('brfs');
 
 gulp.task('default', bundle); // run the js task by default
 gulp.task('js', bundle); // so you can run `gulp js` to build the file
+
 bundler.on('update', bundle); // on any dep update, runs the bundler
 
 function bundle() {
@@ -26,3 +28,4 @@ function bundle() {
       .pipe(sourcemaps.write('./')) // writes .map file
       .pipe(gulp.dest('./dist'));
 }
+
