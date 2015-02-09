@@ -6,7 +6,8 @@
     "main": "src/flummox.js",
 
     "dependencies": {
-        "lodash" : "^3.1.0"
+        "lodash" : "^3.1.0",
+        "underscore" : "^1.7.0"
     },
 
     "devDependencies": {
